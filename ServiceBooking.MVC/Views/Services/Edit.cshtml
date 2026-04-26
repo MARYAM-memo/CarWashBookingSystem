@@ -1,0 +1,103 @@
+﻿@model ServiceRequest
+@{
+    ViewData["Title"] = "تعديل الخدمة";
+    var hours = Model.Duration.Hours;
+    var minutes = Model.Duration.Minutes;
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="mb-0">
+                        <i class="bi bi-pencil-square"></i>
+                        تعديل الخدمة
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="mb-3">
+                            <label asp-for="Name" class="form-label">اسم الخدمة</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Description" class="form-label">الوصف</label>
+                            <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Description" class="text-danger"></span>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="Price" class="form-label">السعر (جنيه)</label>
+                                <input asp-for="Price" type="number" step="0.01" class="form-control" required />
+                                <span asp-validation-for="Price" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">المدة المقدرة</label>
+                                <div class="row g-2">
+                                    <div class="col-5">
+                                        <input type="number" id="hoursInput" name="hoursInput" class="form-control"
+                                               value="@hours" min="0" max="23" required />
+                                        <small class="text-muted">ساعة</small>
+                                    </div>
+                                    <div class="col-2 d-flex align-items-center justify-content-center">
+                                        <span class="fs-4">:</span>
+                                    </div>
+                                    <div class="col-5">
+                                        <input type="number" id="minutesInput" name="minutesInput" class="form-control"
+                                               value="@minutes" min="0" max="59" required />
+                                        <small class="text-muted">دقيقة</small>
+                                    </div>
+                                    <input type="hidden" asp-for="Duration" id="durationValue"
+                                           value="@Model.Duration.ToString(@"hh\:mm\:ss")" />
+                                    <div class="invalid-feedback">
+                                        يجب إدخال المدة بشكل صحيح (ساعة:دقيقة)
+                                    </div>
+                                    <span asp-validation-for="Duration" class="text-danger"></span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-lg"></i> إلغاء
+                            </a>
+                            <button type="submit" class="btn btn-success">
+                                <i class="bi bi-check-lg"></i> حفظ التعديلات
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script>
+        const hoursInput = document.querySelector('#hoursInput');
+        const minutesInput = document.querySelector('#minutesInput');
+        const hiddenInput = document.querySelector('#durationValue');
+
+        function updateHiddenInput() {
+            const hours = hoursInput.value.padStart(2, '0');
+            const minutes = minutesInput.value.padStart(2, '0');
+            // Formats the value as HH:mm for the server
+            hiddenInput.value = `${hours}:${minutes}`;
+        }
+
+        hoursInput.addEventListener('input', updateHiddenInput);
+        minutesInput.addEventListener('input', updateHiddenInput);
+
+        // Run once to initialize
+        updateHiddenInput();
+    </script>
+}

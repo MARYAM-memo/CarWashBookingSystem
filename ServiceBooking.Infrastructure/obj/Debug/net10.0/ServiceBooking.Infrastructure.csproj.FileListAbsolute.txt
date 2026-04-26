@@ -1,0 +1,17 @@
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Infrastructure.deps.json
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Infrastructure.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Infrastructure.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Core.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Core.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.csproj.AssemblyReference.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.AssemblyInfoInputs.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.AssemblyInfo.cs
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.csproj.CoreCompileInputs.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceB.D706AB48.Up2Date
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/refint/ServiceBooking.Infrastructure.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ServiceBooking.Infrastructure.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/obj/Debug/net10.0/ref/ServiceBooking.Infrastructure.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Application.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Infrastructure/bin/Debug/net10.0/ServiceBooking.Application.pdb

@@ -1,0 +1,15 @@
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/bin/Debug/net10.0/ServiceBooking.Application.deps.json
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/bin/Debug/net10.0/ServiceBooking.Application.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/bin/Debug/net10.0/ServiceBooking.Application.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.GeneratedMSBuildEditorConfig.editorconfig
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.AssemblyInfoInputs.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.AssemblyInfo.cs
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.csproj.CoreCompileInputs.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/refint/ServiceBooking.Application.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ref/ServiceBooking.Application.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/bin/Debug/net10.0/ServiceBooking.Core.dll
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/bin/Debug/net10.0/ServiceBooking.Core.pdb
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceBooking.Application.csproj.AssemblyReference.cache
+/Volumes/Pro/Projects/ASP.Net/ServiceBooking/ServiceBooking.Application/obj/Debug/net10.0/ServiceB.7F1C3C98.Up2Date

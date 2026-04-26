@@ -1,0 +1,103 @@
+﻿@model IEnumerable<BookingResponse>
+@{
+    ViewData["Title"] = "الحجوزات";
+}
+
+<div class="container">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="page-title">
+            <i class="bi bi-calendar-check"></i>
+            الحجوزات
+        </h2>
+        <a asp-action="Create" class="btn btn-primary">
+            <i class="bi bi-plus-lg"></i>
+            حجز جديد
+        </a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="empty-state">
+            <i class="bi bi-calendar-x"></i>
+            <h4>لا توجد حجوزات</h4>
+            <p>ابدأ بإضافة حجز جديد</p>
+            <a asp-action="Create" class="btn btn-primary mt-3">
+                <i class="bi bi-plus-lg"></i> حجز جديد
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="table-container">
+            <div class="table-responsive">
+                <table class="table table-hover mb-0">
+                    <thead>
+                        <tr>
+                            <th>العميل</th>
+                            <th>الهاتف</th>
+                            <th>السيارة</th>
+                            <th>الخدمة</th>
+                            <th>التاريخ</th>
+                            <th>الوقت</th>
+                            <th>الإجراءات</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var booking in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <div class="bg-primary bg-opacity-10 rounded-circle p-2 me-2">
+                                            <i class="bi bi-person text-primary"></i>
+                                        </div>
+                                        <span class="fw-bold">@booking.ClientName</span>
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="tel:@booking.ClientPhone" class="text-decoration-none">
+                                        <i class="bi bi-telephone text-success me-1"></i>
+                                        @booking.ClientPhone
+                                    </a>
+                                </td>
+                                <td>
+                                    <i class="bi bi-car-front text-info me-1"></i>
+                                    @booking.ClientCarType
+                                </td>
+                                <td>
+                                    <span class="badge bg-light text-dark border">
+                                        @booking?.Service?.Name
+                                    </span>
+                                </td>
+                                <td>
+                                    <i class="bi bi-calendar3 text-warning me-1"></i>
+                                    @booking?.BookingDate.ToString("yyyy/MM/dd")
+                                </td>
+                                <td>
+                                    <i class="bi bi-clock text-primary me-1"></i>
+                                    @booking?.BookingTime.ToString(@"hh\:mm")
+                                </td>
+                                <td>
+                                    <div class="d-flex gap-1">
+                                        <a asp-action="Details" asp-route-id="@booking?.Id" class="btn btn-sm btn-outline-info"
+                                               title="تفاصيل">
+                                            <i class="bi bi-eye"></i>
+                                        </a>
+                                        <a asp-action="Edit" asp-route-id="@booking?.Id" class="btn btn-sm btn-outline-warning"
+                                               title="تعديل">
+                                            <i class="bi bi-pencil"></i>
+                                        </a>
+                                        <a asp-action="Delete" asp-route-id="@booking?.Id" class="btn btn-sm btn-outline-danger"
+                                               title="حذف">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    }
+</div>

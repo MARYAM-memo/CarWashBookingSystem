@@ -1,0 +1,71 @@
+﻿@model ServiceResponse
+@{
+    ViewData["Title"] = "حذف الخدمة";
+    var bookingsCount = ViewBag.BookingsCount as int? ?? 0;
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        تأكيد الحذف
+                    </h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-trash-fill text-danger" style="font-size: 4rem;"></i>
+                    </div>
+                    
+                    <h5 class="mb-3">هل أنت متأكد من حذف الخدمة؟</h5>
+                    <h4 class="text-primary fw-bold mb-4">"@Model.Name"</h4>
+
+                    
+                    <div class="d-flex align-items-center justify-content-center gap-3">
+                        <div>
+                            <i class="bi bi-cash-stack text-success"></i>
+                            <strong>@Model.Price.ToString("C", new
+                                                                                                                                                                                    System.Globalization.CultureInfo("ar-EG"))</strong>
+                            </div>
+                            <div class="border-end mx-2" style="height: 20px;"></div>
+                            <div>
+                                <i class="bi bi-clock text-warning"></i>
+                                <strong>@Model.Duration.ToString(@"h\:mm") ساعة</strong>
+                            </div>
+                            <div class="border-end mx-2" style="height: 20px;"></div>
+                            <div>
+                                <i class="bi bi-calendar-check text-info"></i>
+                                <strong>@Model.BookingsCount حجز</strong>
+                            </div>
+                       
+                        </div>
+
+                        @if (bookingsCount > 0)
+                        {
+                            <div class="alert alert-warning">
+                                <i class="bi bi-exclamation-circle-fill"></i>
+                                <strong>تنبيه!</strong> هذه الخدمة لديها @bookingsCount حجوزات.
+                                <br>لن تتمكن من حذفها إلا بعد حذف الحجوزات أولاً.
+                            </div>
+                        }
+
+                        <form asp-action="Delete" method="post" class="mt-4">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="Id" />
+                        
+                            <div class="d-flex gap-2 justify-content-center">
+                                <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                                    <i class="bi bi-x-lg"></i> إلغاء
+                                </a>
+                                <button type="submit" class="btn btn-danger btn-lg" @(bookingsCount > 0 ? "disabled" : "")>
+                                    <i class="bi bi-trash"></i> نعم، احذف
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

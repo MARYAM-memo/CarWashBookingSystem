@@ -1,0 +1,87 @@
+﻿@model BookingRequest
+@{
+    ViewData["Title"] = "تعديل الحجز";
+    var services = ViewBag.Services as SelectList ?? new SelectList(new List<ServiceResponse>());
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-warning text-dark">
+                    <h5 class="mb-0">
+                        <i class="bi bi-pencil-square"></i>
+                        تعديل الحجز
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="Edit" method="post" class="needs-validation" novalidate>
+                        @Html.AntiForgeryToken()
+                        
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ClientName" class="form-label">اسم العميل</label>
+                                <input asp-for="ClientName" class="form-control" required />
+                                <span asp-validation-for="ClientName" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ClientPhone" class="form-label">رقم الهاتف</label>
+                                <input asp-for="ClientPhone" class="form-control" required />
+                                <span asp-validation-for="ClientPhone" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ClientCarType" class="form-label">نوع السيارة</label>
+                                <input asp-for="ClientCarType" class="form-control" required />
+                                <span asp-validation-for="ClientCarType" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="ServiceId" class="form-label">الخدمة</label>
+                                <select asp-for="ServiceId" asp-items="services" class="form-select" required>
+                                    <option value="">-- اختر الخدمة --</option>
+                                </select>
+                                <span asp-validation-for="ServiceId" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="BookingDate" class="form-label">تاريخ الحجز</label>
+                                <input asp-for="BookingDate" type="date" class="form-control" required />
+                                <span asp-validation-for="BookingDate" class="text-danger"></span>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label asp-for="BookingTime" class="form-label">وقت الحجز</label>
+                                <input asp-for="BookingTime" type="time" class="form-control" required />
+                                <span asp-validation-for="BookingTime" class="text-danger"></span>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Notes" class="form-label">ملاحظات</label>
+                            <textarea asp-for="Notes" class="form-control" rows="3"></textarea>
+                            <span asp-validation-for="Notes" class="text-danger"></span>
+                        </div>
+
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-action="Index" class="btn btn-outline-secondary">
+                                <i class="bi bi-x-lg"></i> إلغاء
+                            </a>
+                            <button type="submit" class="btn btn-warning">
+                                <i class="bi bi-check-lg"></i> حفظ التعديلات
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

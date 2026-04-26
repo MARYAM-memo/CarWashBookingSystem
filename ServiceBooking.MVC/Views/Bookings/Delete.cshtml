@@ -1,0 +1,60 @@
+﻿@model BookingResponse
+@{
+    ViewData["Title"] = "حذف الحجز";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="card border-danger">
+                <div class="card-header bg-danger text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                        تأكيد حذف الحجز
+                    </h5>
+                </div>
+                <div class="card-body text-center">
+                    <div class="mb-4">
+                        <i class="bi bi-calendar-x text-danger" style="font-size: 4rem;"></i>
+                    </div>
+                    
+                    <h5 class="mb-3">هل أنت متأكد من حذف هذا الحجز؟</h5>
+                    
+                    <div class="border mb-4 p-2">
+                        <h4 class="text-primary fw-bold mb-2">@Model.ClientName</h4>
+                        <p class="text-muted mb-1">
+                            <i class="bi bi-telephone me-1"></i> @Model.ClientPhone
+                        </p>
+                        <p class="text-muted mb-1">
+                            <i class="bi bi-car-front me-1"></i> @Model.ClientCarType
+                        </p>
+                        <p class="text-muted mb-0">
+                            <i class="bi bi-calendar3 me-1"></i>
+                            @Model.BookingDate.ToString("yyyy/MM/dd") -
+                            @Model.BookingTime.ToString(@"hh\:mm")
+                        </p>
+                    </div>
+
+                    <div class="alert alert-warning">
+                        <i class="bi bi-exclamation-circle-fill"></i>
+                        <strong>تنبيه:</strong> هذا الإجراء لا يمكن التراجع عنه!
+                    </div>
+
+                    <form asp-action="Delete" method="post">
+                        @Html.AntiForgeryToken()
+                        <input type="hidden" asp-for="Id" />
+                        
+                        <div class="d-flex gap-2 justify-content-center">
+                            <a asp-action="Index" class="btn btn-outline-secondary btn-lg">
+                                <i class="bi bi-x-lg"></i> إلغاء
+                            </a>
+                            <button type="submit" class="btn btn-danger btn-lg">
+                                <i class="bi bi-trash"></i> نعم، احذف الحجز
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

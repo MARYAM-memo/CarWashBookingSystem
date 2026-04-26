@@ -1,0 +1,124 @@
+﻿@model BookingResponse
+@{
+    ViewData["Title"] = $"تفاصيل الحجز - {Model.ClientName}";
+}
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0">
+                        <i class="bi bi-info-circle"></i>
+                        تفاصيل الحجز
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <!-- Client Info -->
+                    <div class="text-center mb-4">
+                        <div class="bg-info bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center mb-3"
+                             style="width: 80px; height: 80px;">
+                            <i class="bi bi-person text-info" style="font-size: 2.5rem;"></i>
+                        </div>
+                        <h4 class="fw-bold text-primary">@Model.ClientName</h4>
+                        <a href="tel:@Model.ClientPhone" class="text-decoration-none text-muted">
+                            <i class="bi bi-telephone"></i> @Model.ClientPhone
+                        </a>
+                    </div>
+
+                    <div class="row g-3">
+                        <!-- Car -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">نوع السيارة</small>
+                                <span class="fw-bold">
+                                    <i class="bi bi-car-front text-info me-1"></i>
+                                    @Model.ClientCarType
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Service -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">الخدمة</small>
+                                <span class="fw-bold">
+                                    <i class="bi bi-droplet text-primary me-1"></i>
+                                    @Model?.Service?.Name
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Date -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">تاريخ الحجز</small>
+                                <span class="fw-bold">
+                                    <i class="bi bi-calendar3 text-warning me-1"></i>
+                                    @Model?.BookingDate.ToString("yyyy/MM/dd")
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Time -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">وقت الحجز</small>
+                                <span class="fw-bold">
+                                    <i class="bi bi-clock text-primary me-1"></i>
+                                    @Model?.BookingTime.ToString(@"hh\:mm")
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Price -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">السعر</small>
+                                <span class="fw-bold text-success">
+                                    <i class="bi bi-cash-stack me-1"></i>
+                                    @Model?.Service?.Price.ToString("C", new System.Globalization.CultureInfo("ar-EG"))
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Duration -->
+                        <div class="col-md-6">
+                            <div class="p-3 bg-light rounded">
+                                <small class="text-muted d-block mb-1">المدة المتوقعة</small>
+                                <span class="fw-bold">
+                                    <i class="bi bi-hourglass text-secondary me-1"></i>
+                                    @Model?.Service?.Duration.ToString(@"h\:mm") ساعة
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                    @if (!string.IsNullOrEmpty(Model?.Notes))
+                    {
+                        <div class="mt-4">
+                            <h6 class="text-muted mb-2">
+                                <i class="bi bi-sticky"></i> ملاحظات
+                            </h6>
+                            <div class="p-3 bg-light rounded">
+                                @Model.Notes
+                            </div>
+                        </div>
+                    }
+
+                    <div class="d-flex gap-2 justify-content-center mt-4">
+                        <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-warning">
+                            <i class="bi bi-pencil"></i> تعديل
+                        </a>
+                        <a asp-action="Delete" asp-route-id="@Model?.Id" class="btn btn-danger">
+                            <i class="bi bi-trash"></i> حذف
+                        </a>
+                        <a asp-action="Index" class="btn btn-outline-primary">
+                            <i class="bi bi-arrow-right"></i> العودة
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
